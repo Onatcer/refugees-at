@@ -124,8 +124,8 @@ import {
   MenuIcon,
   QuestionMarkCircleIcon,
   XIcon,
-} from '@heroicons/vue/outline'
-import { ChevronDownIcon } from '@heroicons/vue/solid'
+} from '@heroicons/vue/outline/index.js'
+import { ChevronDownIcon } from '@heroicons/vue/solid/index.js'
 
 
 const solutions = [

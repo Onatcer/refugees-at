@@ -5,6 +5,8 @@ import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid'
 // import Markdown from 'vue3-markdown-it';
 import { Marked } from '@ts-stack/markdown';
 import {
+  computed,
+  nextTick,
   onMounted,
   ref
 } from 'vue'
@@ -29,6 +31,9 @@ const strokeColor = ref('red')
 const fillColor = ref('white')
 const zoom = ref(7)
 
+const showMap =
+    initiative.hasOwnProperty('position');
+
 var degrees2meters = function(lon,lat) {
   var x = lon * 20037508.34 / 180;
   var y = Math.log(Math.tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);
@@ -36,12 +41,25 @@ var degrees2meters = function(lon,lat) {
   return [x, y]
 }
 
-const coordinate = ref(degrees2meters(initiative.position.lon, initiative.position.lat))
+let coordinate = null
+
+if(showMap){
+  coordinate = ref(degrees2meters(initiative.position.lon, initiative.position.lat))
+}
+
 const center = ref(degrees2meters(13.7681591, 47.6607287))
 
 var contentHtml = Marked.parse(initiative.content);
 
 // var contentHtml = md.render(initiative.content);
+
+
+onMounted(() => {
+  // fix loading problem with OpenLayers
+  setTimeout(()=> {
+    window.dispatchEvent(new Event('resize'));
+  }, 100)
+})
 
 
 </script>
@@ -51,8 +69,8 @@ var contentHtml = Marked.parse(initiative.content);
     <div class="relative bg-gray-50">
 
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-gray-50">
-        <div class="-mt-6 sm:flex sm:items-start sm:space-x-5">
-          <div class="mt-2 sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 pl-4 pt-10 sm:pb-1">
+        <div class="sm:flex sm:items-start sm:space-x-5">
+          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 pl-4 py-8">
             <div class="sm:hidden md:block min-w-0 flex-1 ">
               <h1 class="text-3xl font-bold text-gray-900 truncate">
                 {{ initiative.name }}
@@ -79,15 +97,17 @@ var contentHtml = Marked.parse(initiative.content);
         </div>
       </div>
       <div
+          v-if="contentHtml"
           class="max-w-3xl py-12 mx-auto px-4 sm:px-6 lg:px-8 relative prose lg:prose-lg"
           v-html="contentHtml"></div>
 
-      <ol-map style="height:500px; width: 100%;">
+
+      <ol-map v-if="showMap" style="height:500px; width: 100%;">
 
         <ol-view ref="view" :center="center" :zoom="zoom"/>
 
         <ol-tile-layer>
-          <ol-source-osm />
+          <ol-source-osm/>
         </ol-tile-layer>
 
 
@@ -108,9 +128,7 @@ var contentHtml = Marked.parse(initiative.content);
         </ol-vector-layer>
 
 
-
       </ol-map>
-
     </div>
 
 
