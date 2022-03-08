@@ -31,7 +31,6 @@
             <p class="text-center text-xl font-semibold pb-2 text-gray-500 tracking-wide">Kategorien</p>
             <div class="mt-6 grid grid-cols-2 gap-8 lg:grid-cols-4">
 
-
               <NuxtLink :to="'/categories/donations'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
                 <CashIcon class="w-12 h-12 text-yellow-400 block w-full"></CashIcon>
 
@@ -44,18 +43,11 @@
               </NuxtLink>
               <NuxtLink :to="'/categories/commodity-contributions'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
                 <TruckIcon class="w-12 h-12 text-yellow-400 block w-full"></TruckIcon>
-
                 <h3 class="w-full text-center font-semibold text-xl tracking-wide pt-1 text-gray-700">Sachspenden</h3>
-
-
               </NuxtLink>
-              <NuxtLink :to="'/categories/accomodation'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
+              <NuxtLink :to="'/categories/accommodation'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
                 <HomeIcon class="w-12 h-12 text-yellow-400 block w-full"></HomeIcon>
-
                 <h3 class="w-full text-center font-semibold text-xl tracking-wide pt-1 text-gray-700">Unterkunft</h3>
-
-
-
               </NuxtLink>
 
             </div>
@@ -73,21 +65,21 @@
             </div>
           </div>
         </div>
-
-
       </div>
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 import {getAllInitiatives, organizations} from "./organizations/useOrganizationStore";
 import {CashIcon, TruckIcon,
   HomeIcon,
   HandIcon} from "@heroicons/vue/outline";
+
 definePageMeta({
   layout: "default",
 });
+
 
 const organizationsCount = organizations.length
 const initiativesCount = getAllInitiatives().length

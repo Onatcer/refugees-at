@@ -15,7 +15,7 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {getAllInitiatives, getOrganizationForInitiative, organizations} from "../organizations/useOrganizationStore";
 import InitiativeCard from "../../components/InitiativeCard";
 import {useRoute} from "nuxt3/app";

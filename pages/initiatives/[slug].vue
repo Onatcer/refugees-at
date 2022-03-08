@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {useRoute} from "nuxt3/app";
 import {organizations} from "../organizations/useOrganizationStore";
 import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid'

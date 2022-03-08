@@ -79,16 +79,18 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {CashIcon, CubeIcon, HomeIcon, TruckIcon, HandIcon} from '@heroicons/vue/solid/index.js'
 
 import {defineProps} from "vue";
-import {Initiative} from "../pages/organizations/useOrganizationStore";
-import {Organization} from "../pages/organizations/useOrganizationStore";
+import {Initiative} from "~/types";
+import {Organization} from "~/types";
 
-const props = defineProps({
-  initiative: Initiative,
-  organization: Organization
-})
+const props =
+    defineProps<{
+      initiative: Initiative,
+      organization: Organization
+    }
+>()
 
 </script>
