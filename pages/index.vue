@@ -74,7 +74,7 @@
 import {getAllInitiatives, organizations} from "./organizations/useOrganizationStore";
 import {CashIcon, TruckIcon,
   HomeIcon,
-  HandIcon} from "@heroicons/vue/outline";
+  HandIcon} from "@heroicons/vue/outline/index.js";
 
 definePageMeta({
   layout: "default",

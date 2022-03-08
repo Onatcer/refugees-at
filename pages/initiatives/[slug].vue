@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useRoute} from "nuxt3/app";
 import {organizations} from "../organizations/useOrganizationStore";
-import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid'
+import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid/index.js'
 // import Markdown from 'vue3-markdown-it';
 import { Marked } from '@ts-stack/markdown';
 import {
