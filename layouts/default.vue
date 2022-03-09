@@ -1,4 +1,12 @@
 <template>
+
+  <Head>
+
+    <Script defer data-domain="refugees.at" src="https://plausible.io/js/plausible.js"></Script>
+
+  </Head>
+
+
   <div class="bg-white">
     <header>
       <Popover class="relative bg-white">
