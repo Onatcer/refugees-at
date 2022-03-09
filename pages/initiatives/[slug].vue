@@ -6,7 +6,10 @@ import {
   getOrganizationForInitiative,
   getInitiativesForType
 } from "../organizations/useOrganizationStore";
-import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid/index.js'
+import {CashIcon, ExternalLinkIcon, HandIcon,
+  TruckIcon,
+  HomeIcon,
+} from '@heroicons/vue/solid/index.js'
 // import Markdown from 'vue3-markdown-it';
 import { Marked } from '@ts-stack/markdown';
 import {
@@ -88,6 +91,8 @@ onMounted(() => {
               </h2>
             </div>
             <div class="flex items-center">
+              <div>
+
               <a
                   :href="initiative.website"
                   target="_blank"
@@ -95,7 +100,36 @@ onMounted(() => {
                 <span>Zur Website</span>
                 <ExternalLinkIcon class="ml-3 -mr-1 h-6 w-6 text-gray-400" aria-hidden="true"/>
               </a>
+              <div class="w-full pt-6 max-w-1">
+
+                <div class="w-full flex flex-col gap-4 justify-center items-center">
+                  <div v-if="initiative.type && initiative.type.includes('donations')"
+                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <CashIcon class="w-5 h-5 inline-block"></CashIcon>
+                    <span class="text-sm">Spendenaktion</span>
+                  </div>
+                  <div v-if="initiative.type && initiative.type.includes('commodity-contributions')"
+                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <TruckIcon class="w-5 h-5 inline-block"></TruckIcon>
+                    <span class="text-sm">Sachspenden</span>
+                  </div>
+                  <div v-if="initiative.type && initiative.type.includes('accommodation')"
+                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <HomeIcon class="w-5 h-5 inline-block"></HomeIcon>
+                    <span class="text-sm">Unterkunft</span>
+                  </div>
+                  <div v-if="initiative.type && initiative.type.includes('participate')"
+                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <HandIcon class="w-5 h-5 inline-block"></HandIcon>
+                    <span class="text-sm">Mithilfe</span>
+                  </div>
+                </div>
+              </div>
+
+
+              </div>
             </div>
+
           </div>
         </div>
         <div class="hidden sm:block md:hidden mt-6 min-w-0 flex-1">
@@ -144,13 +178,13 @@ onMounted(() => {
       </ol-map>
 
     </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center gap-x-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center justify-between gap-x-10">
 
     <div class="flex flex-shrink-0 mb-4 md:mb-0">
       <img class="h-32 md:h-42 w-32 md:w-42 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
            :src="getOrganizationForInitiative(initiative).logo" alt=""/>
     </div>
-    <div>
+    <div class="flex-1">
       <h3 class="text-2xl font-bold text-gray-900">Über die Organisation "{{
           getOrganizationForInitiative(initiative).name
         }}"</h3>
@@ -179,7 +213,14 @@ onMounted(() => {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-12  gap-x-10">
 
     <div class="w-full mb-12" v-for="type in initiative.type">
-      <h3 class="text-2xl font-semibold text-gray-400 mb-4">Mehr Initiativen in der Kategorie <span class="text-gray-700">{{getNameForCategory(type)}}</span></h3>
+      <div class="flex justify-between items-center mb-5">
+        <h3 class="text-2xl font-semibold text-gray-400">Mehr Initiativen in der Kategorie <span class="text-gray-700">{{getNameForCategory(type)}}</span></h3>
+        <NuxtLink
+            :to="'/categories/' + type"
+            class="inline-flex items-center shadow-lg justify-center px-4 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+          <span>Alle Initiativen anzeigen</span>
+        </NuxtLink>
+      </div>
       <div class="grid md:grid-cols-3 gap-5">
         <InitiativeCard  v-for="initiative in getInitiativesForType(type).slice(0,3)" :organization="getOrganizationForInitiative(initiative)" :initiative="initiative"></InitiativeCard>
 
