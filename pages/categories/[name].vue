@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import {
-  getAllInitiatives,
+  getAllInitiatives, getInitiativesForType,
   getNameForCategory,
   getOrganizationForInitiative,
   organizations
@@ -28,9 +28,8 @@ import {useRoute} from "nuxt3/app";
 
 const route = useRoute()
 
-const initiatives = getAllInitiatives().filter((initiative) => {
-  return initiative.type?.includes(route.params.name)
-})
+const initiatives = getInitiativesForType(route.params.name)
+
 </script>
 
 <style scoped>

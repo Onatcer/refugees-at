@@ -59,7 +59,7 @@ const organization = organizations.find((organization) => {
           {{ organization.name }}
         </h1>
       </div>
-      <div class="grid grid-cols-3 space-x-6 py-12">
+      <div class="grid grid-cols-3 gap-x-6 py-12">
         <div v-for="initiative in organization.initiatives" :key="initiative.slug"
         >
           <InitiativeCard :initiative="initiative" :organization="organization"></InitiativeCard>

@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import {useRoute} from "nuxt3/app";
-import {organizations, getOrganizationForInitiative} from "../organizations/useOrganizationStore";
+import {
+  organizations,
+  getNameForCategory,
+  getOrganizationForInitiative,
+  getInitiativesForType
+} from "../organizations/useOrganizationStore";
 import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid/index.js'
 // import Markdown from 'vue3-markdown-it';
 import { Marked } from '@ts-stack/markdown';
@@ -10,6 +15,7 @@ import {
   onMounted,
   ref
 } from 'vue'
+import InitiativeCard from "~/components/InitiativeCard.vue";
 
 const route = useRoute()
 
@@ -72,12 +78,12 @@ onMounted(() => {
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-gray-50">
         <div class="sm:flex sm:items-start sm:space-x-5">
-          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 py-8">
+          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 py-14">
             <div class="sm:hidden md:block min-w-0 flex-1 ">
               <h1 class="text-3xl font-bold text-gray-900 truncate">
                 {{ initiative.name }}
               </h1>
-              <h2 class="test-base text-gray-600 pt-1 max-w-xl">
+              <h2 class="text-lg text-gray-600 pt-2 max-w-xl">
                 {{ initiative.description }}
               </h2>
             </div>
@@ -97,11 +103,16 @@ onMounted(() => {
             {{ organization.name }}
           </h1>
         </div>
+        <hr class="border-gray-300" v-if="contentHtml">
+
       </div>
-      <div
-          v-if="contentHtml"
-          class="max-w-3xl py-12 mx-auto px-4 sm:px-6 lg:px-8 relative prose lg:prose-lg"
-          v-html="contentHtml"></div>
+      <div class="max-w-7xl mx-auto">
+        <div
+            v-if="contentHtml"
+            class="max-w-3xl py-12 px-4 sm:px-6 lg:px-8 relative prose lg:prose-lg"
+            v-html="contentHtml"></div>
+
+      </div>
 
 
       <ol-map v-if="showMap" style="height:500px; width: 100%;">
@@ -133,14 +144,14 @@ onMounted(() => {
       </ol-map>
 
     </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center space-x-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center gap-x-10">
 
-    <div class="flex">
+    <div class="flex flex-shrink-0">
       <img class="h-64 w-64 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
            :src="getOrganizationForInitiative(initiative).logo" alt=""/>
     </div>
     <div>
-      <h3 class="text-3xl font-bold text-gray-900">Über die Organisation "{{
+      <h3 class="text-2xl font-bold text-gray-900">Über die Organisation "{{
           getOrganizationForInitiative(initiative).name
         }}"</h3>
 
@@ -152,13 +163,32 @@ onMounted(() => {
         <strong>Website: </strong>
         <a class="text-blue-500 hover:text-blue-600 transition font-bold" :href="getOrganizationForInitiative(initiative).website">{{ getOrganizationForInitiative(initiative).website }}</a>
         </p>
-
-
     </div>
-
+    <div class="flex items-center flex-shrink-0">
+      <NuxtLink
+          :to="'/organizations/' + organization.slug"
+          class="inline-flex items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+        <span>Alle {{ organization.initiatives.length }} Initiativen anzeigen</span>
+      </NuxtLink>
+    </div>
 
   </div>
 
-</div>
+  <div class=" bg-gray-100">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-12  gap-x-10">
+
+    <div class="w-full mb-12" v-for="type in initiative.type">
+      <h3 class="text-2xl font-semibold text-gray-400 mb-4">Mehr Initiativen in der Kategorie <span class="text-gray-700">{{getNameForCategory(type)}}</span></h3>
+      <div class="grid grid-cols-3 gap-5">
+        <InitiativeCard  v-for="initiative in getInitiativesForType(type).slice(0,3)" :organization="getOrganizationForInitiative(initiative)" :initiative="initiative"></InitiativeCard>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  </div>
 
 </template>

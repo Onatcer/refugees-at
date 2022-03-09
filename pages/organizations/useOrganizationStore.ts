@@ -450,3 +450,8 @@ export function getNameForCategory(type:InitiativeType){
         return 'Spenden';
     }
 }
+export function getInitiativesForType(type: InitiativeType){
+    return getAllInitiatives().filter((initiative) => {
+        return initiative.type?.includes(type)
+    })
+}
