@@ -33,9 +33,9 @@ const organization = organizations.find((organization) => {
           <img class="h-24 w-24 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
                :src="organization.logo" alt=""/>
         </div>
-        <div class="mt-2 sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 pl-4 pt-10 sm:pb-1">
+        <div class="mt-2 sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 pl-4 pt-10 md:pb-1">
           <div class="sm:hidden md:block min-w-0 flex-1 ">
-            <h1 class="text-3xl font-bold text-gray-900 truncate">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
               {{ organization.name }}
             </h1>
             <h2 class="test-base text-gray-600 pt-1 max-w-xl">
@@ -47,7 +47,7 @@ const organization = organizations.find((organization) => {
                 :href="organization.website"
                 target="_blank"
 
-                class="inline-flex items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                class="inline-flex items-center shadow-lg justify-center mt-4 md:mt-0 px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
               <span>Zur Website</span>
               <ExternalLinkIcon class="ml-3 -mr-1 h-6 w-6 text-gray-400" aria-hidden="true"/>
             </a>
@@ -59,7 +59,7 @@ const organization = organizations.find((organization) => {
           {{ organization.name }}
         </h1>
       </div>
-      <div class="grid grid-cols-3 gap-x-6 py-12">
+      <div class="md:grid grid-cols-3 gap-x-6 py-12">
         <div v-for="initiative in organization.initiatives" :key="initiative.slug"
         >
           <InitiativeCard :initiative="initiative" :organization="organization"></InitiativeCard>

@@ -78,12 +78,12 @@ onMounted(() => {
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-gray-50">
         <div class="sm:flex sm:items-start sm:space-x-5">
-          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 py-14">
+          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 py-10 md:py-14">
             <div class="sm:hidden md:block min-w-0 flex-1 ">
-              <h1 class="text-3xl font-bold text-gray-900 truncate">
+              <h1 class="font-bold text-gray-900 text-3xl">
                 {{ initiative.name }}
               </h1>
-              <h2 class="text-lg text-gray-600 pt-2 max-w-xl">
+              <h2 class="text-lg text-gray-600 pt-3 max-w-xl">
                 {{ initiative.description }}
               </h2>
             </div>
@@ -91,7 +91,7 @@ onMounted(() => {
               <a
                   :href="initiative.website"
                   target="_blank"
-                  class="inline-flex items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                  class="inline-flex  mt-6 md:mt-0 items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
                 <span>Zur Website</span>
                 <ExternalLinkIcon class="ml-3 -mr-1 h-6 w-6 text-gray-400" aria-hidden="true"/>
               </a>
@@ -146,8 +146,8 @@ onMounted(() => {
     </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center gap-x-10">
 
-    <div class="flex flex-shrink-0">
-      <img class="h-64 w-64 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
+    <div class="flex flex-shrink-0 mb-4 md:mb-0">
+      <img class="h-32 md:h-42 w-32 md:w-42 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
            :src="getOrganizationForInitiative(initiative).logo" alt=""/>
     </div>
     <div>
@@ -164,7 +164,7 @@ onMounted(() => {
         <a class="text-blue-500 hover:text-blue-600 transition font-bold" :href="getOrganizationForInitiative(initiative).website">{{ getOrganizationForInitiative(initiative).website }}</a>
         </p>
     </div>
-    <div class="flex items-center flex-shrink-0">
+    <div class="flex items-center flex-shrink-0 mt-6 md:mt-0">
       <NuxtLink
           :to="'/organizations/' + organization.slug"
           class="inline-flex items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
@@ -180,7 +180,7 @@ onMounted(() => {
 
     <div class="w-full mb-12" v-for="type in initiative.type">
       <h3 class="text-2xl font-semibold text-gray-400 mb-4">Mehr Initiativen in der Kategorie <span class="text-gray-700">{{getNameForCategory(type)}}</span></h3>
-      <div class="grid grid-cols-3 gap-5">
+      <div class="grid md:grid-cols-3 gap-5">
         <InitiativeCard  v-for="initiative in getInitiativesForType(type).slice(0,3)" :organization="getOrganizationForInitiative(initiative)" :initiative="initiative"></InitiativeCard>
 
       </div>

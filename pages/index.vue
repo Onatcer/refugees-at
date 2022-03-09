@@ -31,23 +31,23 @@
             <p class="text-center text-xl font-semibold pb-2 text-gray-500 tracking-wide">Kategorien</p>
             <div class="mt-6 grid grid-cols-2 gap-8 lg:grid-cols-4">
 
-              <NuxtLink :to="'/categories/donations'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
+              <NuxtLink :to="'/categories/donations'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-6 md:px-12 py-6 rounded-lg shadow-lg">
                 <CashIcon class="w-12 h-12 text-yellow-400 block w-full"></CashIcon>
 
-                <h3 class="w-full text-center font-semibold text-xl tracking-wide pt-1 text-gray-700">Spenden</h3>
+                <h3 class="w-full text-center font-semibold text-base md:text-xl tracking-wide pt-1 text-gray-700">Spenden</h3>
               </NuxtLink>
-              <NuxtLink :to="'/categories/participate'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
+              <NuxtLink :to="'/categories/participate'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-6 md:px-12 py-6 rounded-lg shadow-lg">
                 <HandIcon class="w-12 h-12 text-yellow-400 block w-full"></HandIcon>
 
-                <h3 class="w-full text-center font-semibold text-xl tracking-wide pt-1 text-gray-700">Mitmachen</h3>
+                <h3 class="w-full text-center font-semibold text-base md:text-xl tracking-wide pt-1 text-gray-700">Mitmachen</h3>
               </NuxtLink>
-              <NuxtLink :to="'/categories/commodity-contributions'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
+              <NuxtLink :to="'/categories/commodity-contributions'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition ppx-6 md:x-12 py-6 rounded-lg shadow-lg">
                 <TruckIcon class="w-12 h-12 text-yellow-400 block w-full"></TruckIcon>
-                <h3 class="w-full text-center font-semibold text-xl tracking-wide pt-1 text-gray-700">Sachspenden</h3>
+                <h3 class="w-full text-center font-semibold text-base md:text-xl tracking-wide pt-1 text-gray-700">Sachspenden</h3>
               </NuxtLink>
-              <NuxtLink :to="'/categories/accommodation'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-12 py-6 rounded-lg shadow-lg">
+              <NuxtLink :to="'/categories/accommodation'" class="col-span-1 flex flex-wrap justify-center md:col-span-2 lg:col-span-1 bg-white hover:shadow-xl transition px-6 md:px-12 py-6 rounded-lg shadow-lg">
                 <HomeIcon class="w-12 h-12 text-yellow-400 block w-full"></HomeIcon>
-                <h3 class="w-full text-center font-semibold text-xl tracking-wide pt-1 text-gray-700">Unterkunft</h3>
+                <h3 class="w-full text-center font-semibold text-base md:text-xl tracking-wide pt-1 text-gray-700">Unterkunft</h3>
               </NuxtLink>
 
             </div>
