@@ -1,6 +1,4 @@
 <template>
-  <div>
-
     <div class="rounded-lg hover:shadow-xl transition shadow-lg overflow-hidden flex h-full flex-col">
       <NuxtLink as="div" :to="'/initiatives/' + initiative.slug">
 
@@ -74,8 +72,6 @@
       </div>
     </div>
 
-    <!--    </NuxtLink>-->
-  </div>
 
 </template>
 

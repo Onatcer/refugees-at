@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useRoute} from "nuxt3/app";
-import {organizations} from "../organizations/useOrganizationStore";
+import {organizations, getOrganizationForInitiative} from "../organizations/useOrganizationStore";
 import {CashIcon, ExternalLinkIcon} from '@heroicons/vue/solid/index.js'
 // import Markdown from 'vue3-markdown-it';
 import { Marked } from '@ts-stack/markdown';
@@ -65,12 +65,14 @@ onMounted(() => {
 </script>
 
 <template>
+<div>
+
 
     <div class="relative bg-gray-50">
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-gray-50">
         <div class="sm:flex sm:items-start sm:space-x-5">
-          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 pl-4 py-8">
+          <div class="sm:flex-1 sm:min-w-0 sm:flex sm:justify-end sm:space-x-6 py-8">
             <div class="sm:hidden md:block min-w-0 flex-1 ">
               <h1 class="text-3xl font-bold text-gray-900 truncate">
                 {{ initiative.name }}
@@ -129,8 +131,34 @@ onMounted(() => {
 
 
       </ol-map>
+
+    </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center space-x-6">
+
+    <div class="flex">
+      <img class="h-64 w-64 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
+           :src="getOrganizationForInitiative(initiative).logo" alt=""/>
+    </div>
+    <div>
+      <h3 class="text-3xl font-bold text-gray-900">Über die Organisation "{{
+          getOrganizationForInitiative(initiative).name
+        }}"</h3>
+
+      <p class="mt-2">{{
+          getOrganizationForInitiative(initiative).description
+        }}</p>
+
+      <p class="mt-2">
+        <strong>Website: </strong>
+        <a class="text-blue-500 hover:text-blue-600 transition font-bold" :href="getOrganizationForInitiative(initiative).website">{{ getOrganizationForInitiative(initiative).website }}</a>
+        </p>
+
+
     </div>
 
 
+  </div>
+
+</div>
 
 </template>

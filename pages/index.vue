@@ -17,8 +17,8 @@
                 <p class="mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl">Refugees.at bietet eine Übersicht über Organisationen und Initiativen welche sich im Zuge der Flüchtlingshilfe sowie Flüchtlingsbetreuung engagieren.</p>
                 <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                   <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                    <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-900 bg-white hover:bg-yellow-50 sm:px-8">Aktiv werden</a>
-                    <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-900 bg-yellow-400 sm:px-8">Spenden</a>
+                    <NuxtLink to="/categories/participate" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-900 bg-white hover:bg-yellow-50 sm:px-8">Aktiv werden</NuxtLink>
+                    <NuxtLink to="/categories/donations"  class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-900 bg-yellow-400 sm:px-8">Spenden</NuxtLink>
                   </div>
                 </div>
               </div>
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Logo cloud -->
-        <div class="bg-gray-100">
+        <div class="bg-gray-100 pb-10">
           <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">Überblick über {{ organizationsCount }} Organisationen und {{ initiativesCount }} Initiativen</p>
             <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
@@ -63,8 +63,13 @@
                 <img class="h-12 object-contain" :src="organization.logo" alt="Tuple" />
               </NuxtLink>
             </div>
+
           </div>
+
+
+
         </div>
+
       </div>
 
 </template>

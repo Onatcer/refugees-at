@@ -24,7 +24,7 @@
           <PopoverGroup as="nav" class="hidden md:flex space-x-10">
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500']">
-                <span>Solutions</span>
+                <span>Kategorien</span>
                 <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" />
               </PopoverButton>
 
@@ -33,7 +33,7 @@
                   <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                       <a v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                        <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-yellow-600 text-white sm:h-12 sm:w-12">
+                        <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-yellow-500 text-white sm:h-12 sm:w-12">
                           <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
                         </div>
                         <div class="ml-4">
@@ -110,6 +110,21 @@
       <slot></slot>
       <!-- More main page content here... -->
     </main>
+    <div class="bg-gray-200 py-10">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+
+        <h2 class="text-3xl py-2 font-bold text-gray-700">Dir fehlt etwas? </h2>
+        <div class="mt-6 prose">
+          Vorschläge für Initiativen und Organisationen können an <a href="mailto:me@onatcer.com">me@onatcer.com</a> oder per DM an
+          <a href="https://twitter.com/onatcer">@onatcer</a> geschickt werden.
+        </div>
+
+      </div>
+
+
+
+    </div>
+
   </div>
 </template>
 
@@ -125,34 +140,32 @@ import {
   QuestionMarkCircleIcon,
   XIcon,
 } from '@heroicons/vue/outline/index.js'
-import { ChevronDownIcon } from '@heroicons/vue/solid/index.js'
+import {CashIcon, ChevronDownIcon, HandIcon, HomeIcon, TruckIcon} from '@heroicons/vue/solid/index.js'
 
 
 const solutions = [
   {
-    name: 'Inbox',
-    description: 'Get a better understanding of where your traffic is coming from.',
-    href: '#',
-    icon: InboxIcon,
+    name: 'Spenden',
+    description: 'Geldspenden für diverse Initiativen vor Ort.',
+    href: '/categories/donations',
+    icon: CashIcon,
   },
   {
-    name: 'Messaging',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '#',
-    icon: AnnotationIcon,
+    name: 'Mitmachen',
+    description: 'Selbst engagieren und mithelfen.',
+    href: '/categories/participate',
+    icon: HandIcon,
   },
-  { name: 'Live Chat', description: "Your customers' data will be safe and secure.", href: '#', icon: ChatAlt2Icon },
+  { name: 'Sachspenden', description: "Sammelstellen und Organisationen die Sachspenden koordinieren.", href: '/categories/commodity-contributions', icon: TruckIcon },
   {
-    name: 'Knowledge Base',
-    description: "Connect with third-party tools that you're already using.",
-    href: '#',
-    icon: QuestionMarkCircleIcon,
+    name: 'Unterkunft',
+    description: "Unterkünfte zur Verfügung stellen.",
+    href: '/categories/accommodation',
+    icon: HomeIcon,
   },
 ]
 const navigation = [
-  { name: 'Pricing', href: '#' },
-  { name: 'Partners', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'About', href: '/about' },
 ]
 
 export default {

@@ -1,4 +1,4 @@
-import {Initiative, Organization} from "~/types";
+import {Initiative, InitiativeType, Organization} from "~/types";
 
 
 export const organizations: Organization[] = [{
@@ -397,6 +397,20 @@ export const organizations: Organization[] = [{
             'type': ['accommodation'],
         }],
     },
+    {
+        'name': 'Warmes Bett',
+        'slug': 'warmes-bett',
+        'logo': '/warmes-bett-logo.webp',
+        'website': 'https://warmes-bett.de/',
+        'description': 'Warmes Bett ist eine Plattform um Familien in Not eine vorübergehende Zuflucht zur Verfügung zu stellen.',
+        'initiatives': [{
+            'name': 'Warmes Bett',
+            'slug': 'warmes-bett',
+            'website': 'https://warmes-bett.de/',
+            'description': 'Warmes Bett ist eine Plattform um Familien in Not eine vorübergehende Zuflucht zur Verfügung zu stellen.',
+            'type': ['accommodation'],
+        }],
+    },
 
 
 ]
@@ -418,4 +432,21 @@ export function getOrganizationForInitiative(initiative:Initiative){
         return organization.initiatives.includes(initiative)
     })
 
+}
+
+
+export function getNameForCategory(type:InitiativeType){
+
+    if(type === 'participate'){
+        return 'Mitmachen';
+    }
+    else if (type === 'commodity-contributions'){
+        return 'Sachspenden';
+    }
+    else if(type === 'accommodation'){
+        return 'Unterkunft';
+    }
+    else if (type === 'donations'){
+        return 'Spenden';
+    }
 }
