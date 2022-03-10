@@ -103,26 +103,26 @@ onMounted(() => {
               <div class="w-full pt-6 max-w-1">
 
                 <div class="w-full flex flex-col gap-4 justify-center items-center">
-                  <div v-if="initiative.type && initiative.type.includes('donations')"
-                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <CashIcon class="w-5 h-5 inline-block"></CashIcon>
+                  <NuxtLink to="/categories/donations" v-if="initiative.type && initiative.type.includes('donations')"
+                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <CashIcon class="w-5 h-5 inline-block text-yellow-400"></CashIcon>
                     <span class="text-sm">Spendenaktion</span>
-                  </div>
-                  <div v-if="initiative.type && initiative.type.includes('commodity-contributions')"
-                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <TruckIcon class="w-5 h-5 inline-block"></TruckIcon>
+                  </NuxtLink>
+                  <NuxtLink to="/categories/commodity-contributions" v-if="initiative.type && initiative.type.includes('commodity-contributions')"
+                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <TruckIcon class="w-5 h-5 inline-block text-yellow-400"></TruckIcon>
                     <span class="text-sm">Sachspenden</span>
-                  </div>
-                  <div v-if="initiative.type && initiative.type.includes('accommodation')"
-                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <HomeIcon class="w-5 h-5 inline-block"></HomeIcon>
+                  </NuxtLink>
+                  <NuxtLink to="/categories/accommodation" v-if="initiative.type && initiative.type.includes('accommodation')"
+                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <HomeIcon class="w-5 h-5 inline-block text-yellow-400"></HomeIcon>
                     <span class="text-sm">Unterkunft</span>
-                  </div>
-                  <div v-if="initiative.type && initiative.type.includes('participate')"
-                       class="px-4 mx-auto py-2 bg-yellow-300 rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <HandIcon class="w-5 h-5 inline-block"></HandIcon>
+                  </NuxtLink>
+                  <NuxtLink to="/categories/participate" v-if="initiative.type && initiative.type.includes('participate')"
+                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <HandIcon class="w-5 h-5 inline-block text-yellow-400"></HandIcon>
                     <span class="text-sm">Mithilfe</span>
-                  </div>
+                  </NuxtLink>
                 </div>
               </div>
 

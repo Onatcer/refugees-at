@@ -80,9 +80,17 @@ import {getAllInitiatives, organizations} from "./organizations/useOrganizationS
 import {CashIcon, TruckIcon,
   HomeIcon,
   HandIcon} from "@heroicons/vue/outline/index.js";
+import {useMeta} from "#meta";
 
 definePageMeta({
   layout: "default",
+});
+import ogImage from '../public/og-image.png';
+
+useMeta({
+  meta: [
+    { name: 'og:image', content: 'https://refugees.at/' + ogImage }
+  ]
 });
 
 
