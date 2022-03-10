@@ -88,7 +88,9 @@ definePageMeta({
 import ogImage from '../public/og-image.png';
 
 useMeta({
+  'title': 'Refugees.at - Du möchtest helfen?',
   meta: [
+    { name: 'description', content: 'Refugees.at bietet eine Übersicht über Organisationen und Initiativen welche sich im Zuge der Flüchtlingshilfe sowie Flüchtlingsbetreuung engagieren.'},
     { name: 'og:image', content: 'https://refugees.at/' + ogImage },
     { name: 'twitter:card', content: 'summary_large_image' }
   ]
