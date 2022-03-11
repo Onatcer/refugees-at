@@ -85,19 +85,18 @@ import {useMeta} from "#meta";
 definePageMeta({
   layout: "default",
 });
-import ogImage from '../public/og-image.png';
+import ogImage from '../public/refugees-og-image.jpg';
 
 useMeta({
   'title': 'Refugees.at - Du möchtest helfen?',
   meta: [
     { name: 'description', content: 'Refugees.at bietet eine Übersicht über Organisationen und Initiativen welche sich im Zuge der Flüchtlingshilfe sowie Flüchtlingsbetreuung engagieren.'},
-    { name: 'og:image', content: 'https://refugees.at/' + ogImage },
+    { name: 'og:image', content: 'https://refugees.at' + ogImage },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Refugees.at - Du möchtest helfen?'},
     { name: 'og:title', content: 'Refugees.at - Du möchtest helfen?'}
   ]
 });
-
 
 const organizationsCount = organizations.length
 const initiativesCount = getAllInitiatives().length
