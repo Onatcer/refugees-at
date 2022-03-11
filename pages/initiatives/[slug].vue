@@ -152,33 +152,38 @@ onMounted(() => {
       </div>
 
 
-      <ol-map v-if="showMap" style="height:500px; width: 100%;">
+      <div class="relative">
+        <ol-map v-if="showMap" style="height:500px; width: 100%;">
 
-        <ol-view ref="view" :center="center" :zoom="zoom"/>
+          <ol-view ref="view" :center="center" :zoom="zoom"/>
 
-        <ol-tile-layer>
-          <ol-source-osm/>
-        </ol-tile-layer>
-
-
-        <ol-vector-layer>
-          <ol-source-vector>
-            <ol-feature>
-              <ol-geom-point :coordinates="coordinate"></ol-geom-point>
-              <ol-style>
-                <ol-style-circle :radius="radius">
-                  <ol-style-fill :color="fillColor"></ol-style-fill>
-                  <ol-style-stroke :color="strokeColor" :width="strokeWidth"></ol-style-stroke>
-                </ol-style-circle>
-              </ol-style>
-            </ol-feature>
-
-          </ol-source-vector>
-
-        </ol-vector-layer>
+          <ol-tile-layer>
+            <ol-source-osm/>
+          </ol-tile-layer>
 
 
-      </ol-map>
+          <ol-vector-layer>
+            <ol-source-vector>
+              <ol-feature>
+                <ol-geom-point :coordinates="coordinate"></ol-geom-point>
+                <ol-style>
+                  <ol-style-circle :radius="radius">
+                    <ol-style-fill :color="fillColor"></ol-style-fill>
+                    <ol-style-stroke :color="strokeColor" :width="strokeWidth"></ol-style-stroke>
+                  </ol-style-circle>
+                </ol-style>
+              </ol-feature>
+
+            </ol-source-vector>
+
+          </ol-vector-layer>
+
+
+        </ol-map>
+
+        <div class="w-full h-full absolute left-0 top-0"></div>
+      </div>
+
 
     </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-6 md:py-12 md:flex items-center justify-between gap-x-10">
@@ -225,7 +230,7 @@ onMounted(() => {
         </NuxtLink>
       </div>
       <div class="grid md:grid-cols-3 gap-5">
-        <InitiativeCard  v-for="initiative in getInitiativesForType(type).slice(0,3)" :organization="getOrganizationForInitiative(initiative)" :initiative="initiative"></InitiativeCard>
+        <InitiativeCard v-for="initiative in getInitiativesForType(type).slice(0,3)" :organization="getOrganizationForInitiative(initiative)" :initiative="initiative"></InitiativeCard>
 
       </div>
     </div>
