@@ -67,7 +67,7 @@ onMounted(() => {
   // fix loading problem with OpenLayers
   setTimeout(()=> {
     window.dispatchEvent(new Event('resize'));
-  }, 100)
+  }, 300)
 })
 
 
@@ -89,6 +89,34 @@ onMounted(() => {
               <h2 class="text-lg text-gray-600 pt-3 max-w-xl">
                 {{ initiative.description }}
               </h2>
+
+
+              <div>
+
+                <div class="flex space-x-5 pt-4">
+                  <NuxtLink to="/categories/donations" v-if="initiative.type && initiative.type.includes('donations')"
+                            class="px-4 py-2 bg-white shadow-md hover:shadow-lg transition rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <CashIcon class="w-5 h-5 inline-block text-yellow-400"></CashIcon>
+                    <span class="text-sm">Spendenaktion</span>
+                  </NuxtLink>
+                  <NuxtLink to="/categories/commodity-contributions" v-if="initiative.type && initiative.type.includes('commodity-contributions')"
+                            class="px-4 py-2 bg-white shadow-md hover:shadow-lg transition rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <TruckIcon class="w-5 h-5 inline-block text-yellow-400"></TruckIcon>
+                    <span class="text-sm">Sachspenden</span>
+                  </NuxtLink>
+                  <NuxtLink to="/categories/accommodation" v-if="initiative.type && initiative.type.includes('accommodation')"
+                            class="px-4 py-2 bg-white shadow-md hover:shadow-lg transition rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <HomeIcon class="w-5 h-5 inline-block text-yellow-400"></HomeIcon>
+                    <span class="text-sm">Unterkunft</span>
+                  </NuxtLink>
+                  <NuxtLink to="/categories/participate" v-if="initiative.type && initiative.type.includes('participate')"
+                            class="px-4 py-2 bg-white shadow-md hover:shadow-lg transition rounded-full text-gray-700 font-semibold flex items-center space-x-2">
+                    <HandIcon class="w-5 h-5 inline-block text-yellow-400"></HandIcon>
+                    <span class="text-sm">Mithilfe</span>
+                  </NuxtLink>
+                </div>
+
+              </div>
             </div>
             <div class="flex items-center">
               <div>
@@ -96,35 +124,10 @@ onMounted(() => {
               <a
                   :href="initiative.website"
                   target="_blank"
-                  class="inline-flex  mt-6 md:mt-0 items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                  class="inline-flex bg-gray-700 mt-6 md:mt-0 shadow-sm transition items-center shadow-lg justify-center px-6 py-3 border border-gray-300 shadow-sm font-medium rounded-md text-white bg-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
                 <span>Zur Website</span>
-                <ExternalLinkIcon class="ml-3 -mr-1 h-6 w-6 text-gray-400" aria-hidden="true"/>
+                <ExternalLinkIcon class="ml-3 -mr-1 h-6 w-6 text-gray-300" aria-hidden="true"/>
               </a>
-              <div class="w-full pt-6 max-w-1">
-
-                <div class="w-full flex flex-col gap-4 justify-center items-center">
-                  <NuxtLink to="/categories/donations" v-if="initiative.type && initiative.type.includes('donations')"
-                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <CashIcon class="w-5 h-5 inline-block text-yellow-400"></CashIcon>
-                    <span class="text-sm">Spendenaktion</span>
-                  </NuxtLink>
-                  <NuxtLink to="/categories/commodity-contributions" v-if="initiative.type && initiative.type.includes('commodity-contributions')"
-                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <TruckIcon class="w-5 h-5 inline-block text-yellow-400"></TruckIcon>
-                    <span class="text-sm">Sachspenden</span>
-                  </NuxtLink>
-                  <NuxtLink to="/categories/accommodation" v-if="initiative.type && initiative.type.includes('accommodation')"
-                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <HomeIcon class="w-5 h-5 inline-block text-yellow-400"></HomeIcon>
-                    <span class="text-sm">Unterkunft</span>
-                  </NuxtLink>
-                  <NuxtLink to="/categories/participate" v-if="initiative.type && initiative.type.includes('participate')"
-                       class="px-4 mx-auto py-2 bg-white shadow-md rounded-full text-gray-700 font-semibold flex items-center space-x-2">
-                    <HandIcon class="w-5 h-5 inline-block text-yellow-400"></HandIcon>
-                    <span class="text-sm">Mithilfe</span>
-                  </NuxtLink>
-                </div>
-              </div>
 
 
               </div>
@@ -185,11 +188,11 @@ onMounted(() => {
            :src="getOrganizationForInitiative(initiative).logo" alt=""/>
     </div>
     <div class="flex-1">
-      <h3 class="text-2xl font-bold text-gray-900">Über die Organisation "{{
+      <h3 class="text-xl font-bold text-gray-900">Über die Organisation "{{
           getOrganizationForInitiative(initiative).name
         }}"</h3>
 
-      <p class="mt-2">{{
+      <p class="mt-2 text-base">{{
           getOrganizationForInitiative(initiative).description
         }}</p>
 

@@ -2,6 +2,10 @@ import { defineNuxtPlugin } from '#app';
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.$router.options.scrollBehavior = (to, from, savedPosition) => {
-        return { top: 0 }
-    };
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({ left: 0, top: 0 })
+            }, 200)
+        })
+    }
 });
