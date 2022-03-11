@@ -181,10 +181,10 @@ onMounted(() => {
       </ol-map>
 
     </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-12 md:flex items-center justify-between gap-x-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white py-6 md:py-12 md:flex items-center justify-between gap-x-10">
 
-    <div class="flex flex-shrink-0 mb-4 md:mb-0">
-      <img class="h-32 md:h-42 w-32 md:w-42 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
+    <div class="flex flex-shrink-0 mb-8 md:mb-0">
+      <img class="h-24 md:h-42 w-24 md:w-42 shadow-xl rounded-full ring-4 ring-white sm:h-32 sm:w-32 bg-white object-contain p-4"
            :src="getOrganizationForInitiative(initiative).logo" alt=""/>
     </div>
     <div class="flex-1">
