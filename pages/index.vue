@@ -102,6 +102,7 @@ useMeta({
     { name: 'og:url', content: 'https://www.refugees.at/'},
     { name: 'og:image:width', content: '1200'},
     { name: 'og:image:height', content: '626'},
+    { name: 'og:locale', content: 'de_DE'}
   ]
 });
 
