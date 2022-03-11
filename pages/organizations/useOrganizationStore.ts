@@ -411,6 +411,25 @@ export const organizations: Organization[] = [{
             'type': ['accommodation'],
         }],
     },
+    {
+        'name': 'Gemeinwohlstiftung COMÚN',
+        'slug': 'gemeinwohlstiftung-comun',
+        'logo': '/comun-logo.png',
+        'website': 'https://gemeinwohlstiftung.at/',
+        'description': 'Die Gemeinwohlstiftung COMÚN wurde im Dezember 2021 vom Verein zur Gründung einer Gemeinwohlstiftung zusammen mit dem Ehepaar Veronika & Sebastian Bohrn Mena gegründet. Sie soll den ökologischen sowie sozialen Fortschritt befördern.',
+        'initiatives': [{
+            'name': 'Kriegsbetroffene & Journalist*innen in der Ukraine',
+            'slug': 'kriegsbetroffene-journalistinnen-in-der-ukraine',
+            'website': 'https://gemeinwohlstiftung.at/',
+            'description': 'Die Gemeinwohlstiftung COMÚN sammelt Geldspenden und Sachspenden für Kriegsbetroffene & Journalist*innen in der Ukraine. Es ist auch möglich selbst bei den Transporten mitzuhelfen.',
+            'content': `Eine Übersicht über aktuell benötigte Medikamente findet sich [hier](https://gemeinwohlstiftung.at/medikamente-fur-die-ukraine/) und sonstige dringend benötigte Artikel [hier](https://gemeinwohlstiftung.at/sachspenden-fur-die-ukraine/)`,
+            position: {
+                lat: 48.2096574,
+                lon: 16.3768922
+            },
+            'type': ['donations', 'commodity-contributions', 'participate'],
+        }],
+    },
 
 
 ]

@@ -5,7 +5,7 @@
         <div class="flex-shrink-0">
           <img v-if="initiative.logo" class="h-48 w-full object-cover" :src="initiative.logo" alt=""/>
           <div v-else
-               class="bg-gradient-to-br to-yellow-600 from-yellow-300 h-48 w-full px-12 flex flex-wrap relative content-center space-y-4">
+               class="bg-gradient-to-br to-yellow-600 from-yellow-300 min-h-[200px] w-full px-6 py-6 flex flex-wrap relative content-center space-y-4">
             <p class="w-full text-2xl tracking-wide text-white text-center font-bold" style="
                   text-shadow: 0 4px 8px rgba(0,0,0,0.62), 0 0 12px rgba(0,0,0,0.28);">
               {{ initiative.name }}
@@ -31,7 +31,6 @@
                 <HandIcon class="w-5 h-5 inline-block"></HandIcon>
                 <span class="text-sm">Mithilfe</span>
               </div>
-
             </div>
 
           </div>
