@@ -134,9 +134,7 @@ export const organizations: Organization[] = [{
             'name': 'Train of Hope',
             'slug': 'train-of-hope',
             'website': 'http://www.trainofhope.at/_www_/jetzthelfen/',
-            'description': 'Die Volkshilfe hilft  Verteilung von Notfallpaketen (z.B. Nahrungsmittel, Decken, Hygieneartikel, Medikamente)' +
-                'Soziale Unterstützung der Betroffenen, um die traumatisierende Situation besser zu verkraften' +
-                'Notunterkünfte für die Geflüchteten. Zumindest ein Dach über dem Kopf.',
+            'description': 'Der Train of Hope engagiert sich mittels Bereitstellung von Sachspenden. Um den Materialaufwand dafür zu unterstütztn kann man sich über Geldspenden beteiligen, oder selbst anpacken.',
             'type': ['donations', 'participate'],
         },
             {
