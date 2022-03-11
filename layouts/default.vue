@@ -109,7 +109,7 @@
       <!-- More main page content here... -->
     </main>
     <div class="bg-gray-200 relative">
-      <img src="/public/footer.svg" class="w-full opacity-40 absolute right-0 bottom-0" alt="">
+      <img src="/footer.svg" class="w-full opacity-40 absolute right-0 bottom-0" alt="">
 
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 relative lg:px-8 pb-20 pt-14">
 
