@@ -108,14 +108,17 @@
       <slot></slot>
       <!-- More main page content here... -->
     </main>
-    <div class="bg-gray-200 py-10">
-      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <div class="bg-gray-200 relative">
+      <img src="/public/footer.svg" class="max-w-3xl opacity-30 absolute right-0 bottom-0" alt="">
 
-        <h2 class="text-3xl py-2 font-bold text-gray-700">Dir fehlt etwas? </h2>
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 relative lg:px-8 py-16">
+
+        <h2 class="text-2xl py-2 font-bold text-gray-700">Dir fehlt etwas? </h2>
         <div class="mt-6 prose">
           Vorschläge für Initiativen und Organisationen können an <a href="mailto:me@onatcer.com">me@onatcer.com</a> oder per DM an
           <a href="https://twitter.com/onatcer">@onatcer</a> geschickt werden.
         </div>
+
 
       </div>
 
