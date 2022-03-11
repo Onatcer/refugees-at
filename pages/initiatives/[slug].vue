@@ -216,7 +216,7 @@ onMounted(() => {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-12  gap-x-10">
 
     <div class="w-full mb-12" v-for="type in initiative.type">
-      <div class="flex justify-between items-center mb-5">
+      <div class="flex justify-between flex-wrap space-y-3 md:space-y-0 items-center mb-5">
         <h3 class="text-2xl font-semibold text-gray-400">Mehr Initiativen in der Kategorie <span class="text-gray-700">{{getNameForCategory(type)}}</span></h3>
         <NuxtLink
             :to="'/categories/' + type"
