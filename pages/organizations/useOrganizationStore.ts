@@ -258,7 +258,7 @@ export const organizations: Organization[] = [{
         'name': 'SPÖ Wiener Neustadt',
         'slug': 'spoe-wiener-neustadt',
         'logo': '/spoe-wn-logo.png',
-        'website': 'http://gmuend-hilft.at/',
+        'website': 'https://www.spwn.at/',
         'description': 'Die SPÖ in Wiener Neustadt.' ,
         'initiatives': [{
             'name': 'Rot hilft Blau-Gelb',
