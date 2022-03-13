@@ -151,7 +151,7 @@ export const organizations: Organization[] = [{
         ]
     },
     {
-        'name': 'Fonts Soziales Wien',
+        'name': 'Fonds Soziales Wien',
         'slug': 'fonds-soziales-wien',
         'logo': '/where2help-logo.svg',
         'website': 'https://www.fsw.at/',
