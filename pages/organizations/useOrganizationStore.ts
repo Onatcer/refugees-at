@@ -263,7 +263,7 @@ export const organizations: Organization[] = [{
         'initiatives': [{
             'name': 'Rot hilft Blau-Gelb',
             'slug': 'rot-hilft-blau-gelb',
-            'website': 'https://www.spwn.at/82/rot-hilft-blau-gelb-380.html',
+            'website': 'https://www.spwn.at/82/rot-hilft-blau-gelbzwischenbilanz.html',
             'description': 'Neustadtweite Sammelaktion der SPÖ Wiener Neustadt',
             'type': ['commodity-contributions'],
             position: {
